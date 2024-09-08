@@ -11,3 +11,7 @@ steps:
       - '--allow-unauthenticated'
       - '--region'
       - 'us-central1'
+      # Run JUnit tests
+      - name: 'gcr.io/cloud-builders/java'
+        args: [ '-Dtest.reports.dir=/workspace/target/surefire-reports', 'mvn', 'test' ]
+
