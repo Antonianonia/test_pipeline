@@ -35,6 +35,8 @@ public class MicroserviceTemplateApplication {
   /** Register shutdown hook to listen for termination signal. */
   @PreDestroy
   public void tearDown() {
+
+
     // Clean up resources on shutdown
     logger.info(MicroserviceTemplateApplication.class.getSimpleName() + ": received SIGTERM.");
     // Flush async logs if needed - current Logback config does not buffer logs
