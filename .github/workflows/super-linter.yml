@@ -28,3 +28,5 @@ jobs:
           DEFAULT_BRANCH: "main"
           REPORT_EXIT_CODE: 0
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LINTER_RULES_PATH: .github/linters  # Pfad zu deinen benutzerdefinierten Regeln
+          VALIDATE_JAVA: true
