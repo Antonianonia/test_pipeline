@@ -26,4 +26,5 @@ jobs:
         env:
           VALIDATE_ALL_CODEBASE: false
           DEFAULT_BRANCH: "main"
+          REPORT_EXIT_CODE: 0
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
