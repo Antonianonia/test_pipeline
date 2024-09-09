@@ -2,7 +2,14 @@ options:
   logging: CLOUD_LOGGING_ONLY
 
 steps:
-  # Schritt 1: Deployment auf Cloud Run
+  # Schritt 1: JUnit-Tests ausführen
+  - name: 'gcr.io/cloud-builders/mvn'
+    args:
+      - '-Dtest.reports.dir=/workspace/target/surefire-reports'
+      - 'test'
+
+  - name
+  # Schritt 2: Deployment auf Cloud Run
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
       - 'run'
@@ -16,8 +23,4 @@ steps:
       - '--region'
       - 'us-central1'
 
-  # Schritt 2: JUnit-Tests ausführen
-  - name: 'gcr.io/cloud-builders/mvn'
-    args:
-      - '-Dtest.reports.dir=/workspace/target/surefire-reports'
-      - 'test'
+
