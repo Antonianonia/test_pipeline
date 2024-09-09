@@ -18,6 +18,7 @@ package com.cloudrun.microservicetemplate;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.junit.jupiter.api.Test;
@@ -34,11 +35,14 @@ public class MicroserviceControllerTest {
 
   @Test
   public void returns_ok() throws Exception {
-    this.mvc.perform(get("/web.de"));/*.andExpect(status().isOk());*/
+    this.mvc.perform(get("/"))
+            .andExpect(status().isOk())
+            .andExpect(content().string("Hello Friends and welcome to our pipeline, it includes a failed test, yay!"));
   }
 
   @Test
-  public void returns_notFount() throws Exception {
-    this.mvc.perform(post("/")).andExpect(status().isMethodNotAllowed());
+  public void returns_methodNotAllowed() throws Exception {
+    this.mvc.perform(post("/"))
+            .andExpect(status().isMethodNotAllowed());  // POST is not allowed on "/" endpoint
   }
 }
