@@ -1,4 +1,5 @@
 steps:
+  # Schritt 1: Deployment auf Cloud Run
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
       - 'run'
@@ -11,7 +12,9 @@ steps:
       - '--allow-unauthenticated'
       - '--region'
       - 'us-central1'
-      # Run JUnit tests
-      - name: 'gcr.io/cloud-builders/java'
-        args: [ '-Dtest.reports.dir=/workspace/target/surefire-reports', 'mvn', 'test' ]
 
+  # Schritt 2: JUnit-Tests ausführen
+  - name: 'gcr.io/cloud-builders/mvn'
+    args:
+      - '-Dtest.reports.dir=/workspace/target/surefire-reports'
+      - 'test'
