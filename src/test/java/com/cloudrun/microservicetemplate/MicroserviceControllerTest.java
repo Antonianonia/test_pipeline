@@ -34,7 +34,7 @@ public class MicroserviceControllerTest {
 
   @Test
   public void returns_ok() throws Exception {
-    this.mvc.perform(get("/")).andExpect(status().isOk());
+    this.mvc.perform(get(".")).andExpect(status().isOk());
   }
 
   @Test
