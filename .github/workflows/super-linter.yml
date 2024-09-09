@@ -30,3 +30,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LINTER_RULES_PATH: .github/linters  # Pfad zu deinen benutzerdefinierten Regeln
           VALIDATE_JAVA: true
+#Test
