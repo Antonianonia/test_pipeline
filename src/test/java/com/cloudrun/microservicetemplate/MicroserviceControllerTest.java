@@ -37,7 +37,7 @@ public class MicroserviceControllerTest {
   public void returns_ok() throws Exception {
     this.mvc.perform(get("/"))
             .andExpect(status().isOk())
-            .andExpect(content().string("Hello Friends and welcome to our pipeline, it includes testing!"));
+            .andExpect(content().string("Hello Friends and welcome to our pipeline, it includes testing, yay!"));
   }
 
   @Test

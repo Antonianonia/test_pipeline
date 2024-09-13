@@ -8,7 +8,7 @@ steps:
       - '-Dtest.reports.dir=/workspace/target/surefire-reports'
       - 'test'
 
-  # Schritt 2: Deployment auf Cloud Run
+  # Schritt 2: Deployment
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
       - 'run'
